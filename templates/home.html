@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+    body{
+        margin:0;
+        font-family:Arial, sans-serif;
+        background:linear-gradient(135deg, #1e3c72, #2a5298);
+        color:white;
+    }
+
+    .hero{
+        height:90vh;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        text-align:center;
+        animation:fadeIn 1s ease-in-out;
+    }
+
+    .hero h1{
+        font-size:4rem;
+        margin-bottom:10px;
+    }
+
+    .hero p{
+        font-size:1.2rem;
+        max-width:600px;
+        margin-bottom:30px;
+    }
+
+    .buttons{
+        display:flex;
+        gap:20px;
+    }
+
+    .btn{
+        text-decoration:none;
+        padding:15px 35px;
+        border-radius:50px;
+        font-size:18px;
+        font-weight:bold;
+        transition:0.3s ease;
+    }
+
+    .login-btn{
+        background:white;
+        color:#2a5298;
+    }
+
+    .login-btn:hover{
+        transform:translateY(-5px);
+        box-shadow:0 10px 20px rgba(0,0,0,0.3);
+    }
+
+    .register-btn{
+        background:transparent;
+        border:2px solid white;
+        color:white;
+    }
+
+    .register-btn:hover{
+        background:white;
+        color:#2a5298;
+        transform:translateY(-5px);
+    }
+
+    @keyframes fadeIn{
+        from{
+            opacity:0;
+            transform:translateY(30px);
+        }
+        to{
+            opacity:1;
+            transform:translateY(0);
+        }
+    }
+</style>
+
+<div class="hero">
+    <h1>Welcome to My Flask Website</h1>
+
+    <p>
+        Create an account, log in, and explore everything the site has to offer.
+        This is a fully responsive Flask landing page.
+    </p>
+
+    <div class="buttons">
+        <a href="{{ url_for('login_page') }}" class="btn login-btn">
+            Login
+        </a>
+
+        <a href="{{ url_for('register_page') }}" class="btn register-btn">
+            Register
+        </a>
+    </div>
+</div>
+
+{% endblock %}
